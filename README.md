@@ -21,8 +21,30 @@ Once you have the terminal open, you will need to navigate to this project's dir
 
 That's it! The script will take care of everything. It will start the application for you.
 
-## Accessing the Application
+## How to Use the Application
 
-Once the script is finished, the application will be running in the background. You can access it by opening your web browser and going to the following address:
+Once the application is running, you can access it by opening your web browser and going to the following address:
 
 [http://localhost:5001](http://localhost:5001)
+
+**1. Log In**
+
+*   You will be taken to a login page. Enter your email address and click "Log In".
+
+**2. Verify Your Email**
+
+*   After you log in, the application will send a verification link and an encrypted key to the terminal window where you ran the `setup.sh` script.
+*   Find the line that says "Click this link to verify your email:" and copy the link.
+*   Paste the link into your web browser.
+
+**3. View the Master Password**
+
+*   After you verify your email, you will be taken to a page that displays the master password for 1Password.
+
+**4. Unlock the Media Folder**
+
+*   On the same page, you will see a form to unlock the media folder.
+*   Go back to the terminal window and find the line that says "Encrypted key:".
+*   Copy the encrypted key.
+*   Paste the key into the "Enter your encrypted key" field on the web page and click "Unlock".
+*   You will then be able to see a list of all the media files.

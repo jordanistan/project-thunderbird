@@ -4,3 +4,4 @@ pyttsx3
 SpeechRecognition
 pyaudio
 itsdangerous
+cryptography

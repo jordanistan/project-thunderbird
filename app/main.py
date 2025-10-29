@@ -2,12 +2,25 @@ from flask import Flask, render_template, request, session, redirect, url_for
 import json
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 import os
+from cryptography.fernet import Fernet
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 # Create a serializer object
 s = URLSafeTimedSerializer(app.secret_key)
+
+# Load the encryption key from a file, or generate a new one
+key_file = '/usr/src/app/secret.key'
+if os.path.exists(key_file):
+    with open(key_file, 'rb') as f:
+        encryption_key = f.read()
+else:
+    encryption_key = Fernet.generate_key()
+    with open(key_file, 'wb') as f:
+        f.write(encryption_key)
+
+fernet = Fernet(encryption_key)
 
 @app.route('/')
 def index():
@@ -32,10 +45,14 @@ def auth():
         # Create the verification link
         link = url_for('verify_email', token=token, _external=True)
         
+        # Encrypt a message
+        encrypted_message = fernet.encrypt(b'A secret message')
+        
         # For now, just print the email to the console
         print(f'Click this link to verify your email: {link}', flush=True)
+        print(f'Encrypted key: {encrypted_message.decode()}', flush=True)
         
-        return "Please check your email for a verification link."
+        return "Please check your email for a verification link and your encrypted key."
     else:
         return "Sorry, your email is not authorized."
 
@@ -63,12 +80,15 @@ def unlock():
         return redirect(url_for('login'))
     
     key = request.form['key']
-    # For now, just print the key to the console
-    print(f"Encrypted key: {key}")
-    
-    # TODO: Decrypt the key and unlock the media folder
-    
-    return "Unlock functionality is not yet implemented."
+    try:
+        decrypted_message = fernet.decrypt(key.encode())
+        if decrypted_message == b'A secret message':
+            media_files = os.listdir('/usr/src/app/media')
+            return render_template('media.html', media_files=media_files)
+        else:
+            return "Invalid key."
+    except Exception as e:
+        return f"An error occurred: {e}"
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

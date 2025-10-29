@@ -93,3 +93,4 @@ docker-compose.override.yml
 
 # Other
 .DS_Store
+secret.key

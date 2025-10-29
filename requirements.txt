@@ -1,0 +1,5 @@
+Flask
+yagmail
+pyttsx3
+SpeechRecognition
+pyaudio

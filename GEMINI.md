@@ -4,12 +4,14 @@
 
 This project is a Python-based web application built with the Flask framework. The application is containerized using Docker. The application provides an email-based authentication system. Once authenticated, a user can view a master password for 1Password and unlock a media folder by providing an encrypted key.
 
+The application features a holographic aesthetic with a video background and an enhanced media display for images, audio, and video files.
+
 The main features are:
 
 *   **Email Authentication:** Users are authenticated by clicking a verification link sent to their email address. The link contains a unique token.
 *   **Encrypted Key:** Along with the verification link, the user also receives an encrypted key.
 *   **Master Password:** Once authenticated, the user can view a master password for 1Password.
-*   **Media Unlock:** The user can use the encrypted key to unlock and view a list of media files.
+*   **Media Unlock:** The user can use the encrypted key to unlock and view a list of media files, displayed as a gallery for images, and with embedded players for audio and video.
 
 The entry point of the application is `app/main.py`.
 
@@ -28,7 +30,7 @@ This project is designed to be run using Docker.
 The project follows a standard Flask application structure, with the application logic contained within the `app` directory.
 
 *   **Templates:** HTML templates are located in the `app/templates` directory.
-*   **Static Assets:** Static assets (e.g., CSS, JavaScript) are located in the `app/static` directory.
+*   **Static Assets:** Static assets (e.g., CSS, JavaScript, images, videos) are located in the `app/static` directory.
 *   **Configuration:** The authorized email addresses are stored in `config/authorized_emails.json`.
 *   **Encryption Key:** The encryption key is stored in `secret.key`.
 

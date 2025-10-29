@@ -47,4 +47,4 @@ Once the application is running, you can access it by opening your web browser a
 *   Go back to the terminal window and find the line that says "Encrypted key:".
 *   Copy the encrypted key.
 *   Paste the key into the "Enter your encrypted key" field on the web page and click "Unlock".
-*   You will then be able to see a list of all the media files.
+*   You will then be able to see a gallery of images, and play audio and video files.

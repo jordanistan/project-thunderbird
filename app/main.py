@@ -76,6 +76,7 @@ def authenticated():
 
 @app.route('/unlock', methods=['POST'])
 def unlock():
+    print(f"Unlock route called with method: {request.method}", flush=True)
     if 'email' not in session:
         return redirect(url_for('login'))
     
@@ -84,7 +85,17 @@ def unlock():
         decrypted_message = fernet.decrypt(key.encode())
         if decrypted_message == b'A secret message':
             media_files = os.listdir('/usr/src/app/media')
-            return render_template('media.html', media_files=media_files)
+            images = []
+            audio = []
+            videos = []
+            for file in media_files:
+                if file.endswith(('.png', '.jpg', '.jpeg', '.gif')):
+                    images.append(file)
+                elif file.endswith(('.mp3', '.wav', '.ogg')):
+                    audio.append(file)
+                elif file.endswith(('.mp4', '.webm', '.ogg')):
+                    videos.append(file)
+            return render_template('media.html', images=images, audio=audio, videos=videos)
         else:
             return "Invalid key."
     except Exception as e:

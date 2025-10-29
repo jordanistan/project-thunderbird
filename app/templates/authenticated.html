@@ -2,8 +2,13 @@
 <html>
 <head>
     <title>Authenticated</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+    <video autoplay muted loop id="bg-video">
+        <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+    </video>
+
     <h1>Welcome!</h1>
     <p>You are authenticated.</p>
     <p>1Password Master Password: <strong>{{ master_password }}</strong></p>

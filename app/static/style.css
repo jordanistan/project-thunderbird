@@ -1,0 +1,113 @@
+body {
+    color: #00ffcc; /* Holographic green */
+    font-family: 'Share Tech Mono', monospace; /* Terminal-like font */
+    text-shadow: 0 0 5px #00ffcc; /* Subtle glow */
+}
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    filter: brightness(0.6) contrast(1.2); /* Adjust video to fit theme */
+}
+
+h1, h2 {
+    text-align: center;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+}
+
+form {
+    margin: 50px auto;
+    width: 300px;
+    padding: 30px;
+    background-color: rgba(0, 50, 40, 0.7); /* Darker, slightly green background */
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8), 0 0 40px rgba(0, 255, 204, 0.4); /* Holographic glow */
+    border: 1px solid #00ffcc;
+}
+
+input, button {
+    width: calc(100% - 20px); /* Adjust for padding */
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #00ffcc;
+    background-color: rgba(0, 30, 25, 0.9); /* Dark input background */
+    color: #00ffcc;
+    font-family: 'Share Tech Mono', monospace;
+    box-shadow: inset 0 0 8px rgba(0, 255, 204, 0.5);
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00ffcc, inset 0 0 8px rgba(0, 255, 204, 0.8);
+}
+
+button {
+    background-color: #00a080; /* Slightly darker green for button */
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 0 5px white;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background-color: #00c0a0;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 1), 0 0 50px rgba(0, 255, 204, 0.6);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 300px;
+}
+
+li {
+    background-color: rgba(0, 50, 40, 0.7);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #00ffcc;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    border-radius: 5px;
+}
+
+.audio-player, .video-player {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(0, 50, 40, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8), 0 0 40px rgba(0, 255, 204, 0.4);
+    border: 1px solid #00ffcc;
+    text-align: center;
+}
+
+audio, video {
+    width: 100%;
+    margin-top: 10px;
+}

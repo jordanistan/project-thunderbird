@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authenticated</title>
+</head>
+<body>
+    <h1>Welcome!</h1>
+    <p>You are authenticated.</p>
+    <p>1Password Master Password: <strong>{{ master_password }}</strong></p>
+    
+    <hr>
+    
+    <h2>Unlock Media Folder</h2>
+    <form action="/unlock" method="post">
+        <input type="text" name="key" placeholder="Enter your encrypted key" required>
+        <button type="submit">Unlock</button>
+    </form>
+</body>
+</html>

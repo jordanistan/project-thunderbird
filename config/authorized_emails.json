@@ -1,6 +1,5 @@
 {
-  "emails": [
-    "parent1@example.com",
-    "parent2@example.com"
-  ]
+    "authorized_emails": [
+        "test@example.com"
+    ]
 }

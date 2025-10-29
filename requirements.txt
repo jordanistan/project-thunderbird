@@ -3,3 +3,4 @@ yagmail
 pyttsx3
 SpeechRecognition
 pyaudio
+itsdangerous

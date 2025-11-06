@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, url_for
+from flask import Flask, render_template, request, session, redirect, url_for, send_from_directory
 import json
 from itsdangerous import URLSafeTimedSerializer, SignatureExpired
 import os
@@ -100,6 +100,10 @@ def unlock():
             return "Invalid key."
     except Exception as e:
         return f"An error occurred: {e}"
+
+@app.route('/media/<path:filename>')
+def media(filename):
+    return send_from_directory('/usr/src/app/media', filename)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
